@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Gif loadscreen</title>
+  <style>
+    #cover {
+      transform: translate(0, -20%);
+      margin-left: 1px;
+      margin-top: 50px; 
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.gif" width="80" height="80" id="cover" />
+
+  <script>
+    window.addEventListener('message', function(event) {
+      if (event.data.type === "toggleLogo") {
+        const cover = document.getElementById("cover");
+        if (event.data.show) {
+          cover.classList.remove("hidden");
+        } else {
+          cover.classList.add("hidden");
+        }
+      }
+    });
+  </script>
+</body>
+</html>
